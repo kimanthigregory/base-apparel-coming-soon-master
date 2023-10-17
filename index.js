@@ -1,6 +1,7 @@
-const errorIcon = document.querySelector(".error-icon img");
-const errorMessage = document.querySelector(".error-message p");
+const errorIcon = document.querySelector(".error-icon")
+const errorMessage = document.querySelector(".error-message");
 const emailInput = document.querySelector("#email");
+const outline = document.querySelector("input[type=email]:focus");
 
 const emailRegex =/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
  
@@ -8,29 +9,50 @@ const emailValid = emailInput.value.length === 0 ||emailRegex.test(emailInput.va
 // check if the email input is valid upon the load loading
 window.addEventListener("load", ()=>{
     if (emailValid){
-        alert("valid");
+        errorIcon.classList.remove("show-error-icon");
+        errorMessage.classList.remove("show-error-message");
+        errorIcon.classList.remove("show-error-outline");
+
     }
     else{
-        alert("email is invalid");
+        errorIcon.classList.add("show-error-icon");
+        errorMessage.classList.add("show-error-message");
+        errorIcon.classList.add("show-error-outline");
     }
 })
 
 emailInput.addEventListener("input", ()=>{
-    if(emailValid){
-        alert("valid");
+    const emailValid = emailInput.value.length === 0 ||emailRegex.test(emailInput.value);
+
+    if (emailValid){
+        errorIcon.classList.remove("show-error-icon");
+        errorMessage.classList.remove("show-error-message");
+        errorIcon.classList.remove("show-error-outline");
+        // alert("valid");
     }
     else{
-        alert("email is invalid");
+        errorIcon.classList.add("show-error-icon");
+        errorMessage.classList.add("show-error-message");
+        errorIcon.classList.add("show-error-outline");
+        // alert("invalid");
     }
 })
 emailInput.addEventListener("submit",(event)=>{
+    event.preventDefault();
+
     const emailValid = emailInput.value.length === 0 ||emailRegex.test(emailInput.value);
 
-    event.preventDefault()
-    if(!emailValid){
-        alert("valid");
+    if (emailValid){
+        errorIcon.classList.remove("show-error-icon");
+        errorMessage.classList.remove("show-error-message");
+        errorIcon.classList.remove("show-error-outline");
+        // alert("valid");
     }
     else{
-        alert("email is invalid");
+        errorIcon.classList.add("show-error-icon");
+        errorMessage.classList.add("show-error-message");
+        errorIcon.classList.add("show-error-outline");
+        // alert("invalid");
     }
+
 })

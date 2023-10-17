@@ -35,7 +35,9 @@ input[type=email]{
 }
 input[type=email]:focus{
     outline: 2px solid hsl(0, 61%, 61%);
+    /* visibility: hidden; */
 }
+
 input[type=submit]{
     background-image:url(./icons/icon-arrow.svg), linear-gradient(135deg,hsl(0, 80%, 86%), hsl(0, 74%, 74%)) ;
     background-position: center;
@@ -70,11 +72,11 @@ form{
 .error-message{
     flex-direction: column;
     padding-left: 1rem;
-
+    display: none; 
 }
 .error-message p{
     color:hsl(0, 93%, 68%);
-    display: none;
+     
 }
 
 /* layout */
@@ -95,4 +97,13 @@ main{
 .image-container img{
     height: 100vh;
     width: 100%;
+}
+.show-error-icon{
+    display: block;
+}
+.show-error-message{
+    display: block;
+}
+.show-outline{
+    display: none;
 }
