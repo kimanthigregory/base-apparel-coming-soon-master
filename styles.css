@@ -23,19 +23,17 @@ body{
 }
 input[type=email]{
     height: 2.7rem;
-    width: 22rem;
-    /* background-image: url(./icons/icon-error.svg); */
+    width: 90%;
     background-repeat: no-repeat;
     background-position:18rem center;
     border-radius: 25px;
     border: 1px solid hsl(0, 3%, 82%);
     padding-left: 1rem;
-    font-size: 16px;
+    font-size: 14px;
     font-family:'Josefin Sans', sans-serif ;
 }
 input[type=email]:focus{
     outline: 2px solid hsl(0, 61%, 61%);
-    /* visibility: hidden; */
 }
 
 input[type=submit]{
@@ -66,7 +64,7 @@ form{
 .error-icon{
     position: absolute;
     top:10px;
-    right: 7rem;
+    right: 6rem;
     display: none;
 }
 .error-message{
@@ -78,7 +76,9 @@ form{
     color:hsl(0, 93%, 68%);
      
 }
-
+.image-container-mobile{
+    display: none;
+}
 /* layout */
 main{
     display: flex;
@@ -93,7 +93,7 @@ main{
 }
 .image-container{
     width: 50%;
-}
+} 
 .image-container img{
     height: 100vh;
     width: 100%;
@@ -106,4 +106,96 @@ main{
 }
 .show-outline{
     display: none;
+}
+/* responsiveness with media queries */
+@media (max-width:1000px){
+    .text-content{
+        width: 80%;
+    }
+}
+@media (max-width:850px){
+    .text-content{
+        width: 95%;
+    }
+}
+@media (max-width:750px){
+    main{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .image-container{
+        order: 0;
+    }
+    .text-container{
+        order: 1;
+        width: 100%;
+    }
+    .paragraph-container h1{
+        font-size: 3.5rem;
+    }
+    .text-content{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 5rem;
+
+    }
+     
+    .apparel-logo{
+        text-align: center;
+        width: 50%;
+        margin-block: 3rem;
+    } 
+    .paragraph-container{
+      
+        text-align: center;
+        width: 80%;
+        align-self: center;
+    }
+    .image-container{
+        display: none;
+        
+    }
+    .image-container-mobile {
+        display: block;
+        width: 100%;
+    }
+    .image-container-mobile img{
+        width: 100%;
+    }
+    .input-email-container{
+        display: grid;
+        place-items: center;
+    }
+    form{
+        width: 80%;
+    }
+    .error-icon{
+        position: absolute;
+        top:10px;
+        right: 11rem;
+        display: none;
+    }
+    .show-error-icon{
+        display: block;
+    }
+    
+}
+@media (max-width:500px){
+    .error-icon{
+        position: absolute;
+        top:10px;
+        right: 8rem;
+        display: none;
+    }
+    .show-error-icon{
+        display: block;
+    }
+    .paragraph-container{
+        width: 90%;
+    }
+    form{
+        width: 90%;
+    }
 }
